@@ -1,8 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
+import { Modal } from '../components/Modal';
+import { ItemDetail } from '../itemDetail/ItemDetail';
 
-export const ItemCount = () => {
-  const [count, setCount] = useState(10);
+export const ItemCount = ({ item }) => {
+  const [count, setCount] = useState(1);
+  const [showDetail, setShowDetail] = useState(false);
+
+  const handleShowDetail = () => {
+    setShowDetail(!showDetail);
+  };
 
   const add = () => {
     if (count > 0) {
@@ -19,6 +26,7 @@ export const ItemCount = () => {
       setCount(count - 1);
     }
   };
+
   if (count < 0) {
     setCount(0);
   }
@@ -42,7 +50,6 @@ export const ItemCount = () => {
           -
         </button>
       </div>
-
       <div className="flex justify-center">
         <button
           onClick={add}
@@ -52,10 +59,27 @@ export const ItemCount = () => {
         </button>
       </div>
       <div className="flex justify-center">
-        <button className="m-1 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-2 border border-blue-500 hover:border-transparent rounded">
+        <button
+          onClick={handleShowDetail}
+          className="m-1 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-2 border border-blue-500 hover:border-transparent rounded"
+        >
           Detalles del producto
         </button>
       </div>
+      <Modal
+        nombre={item.nombre}
+        onClose={handleShowDetail}
+        isOpen={showDetail}
+        imagen={item.img}
+        children={
+          <ItemDetail
+            onClose={handleShowDetail}
+            stock={item.stock}
+            precio={item.precio}
+            marca={item.marca}
+          />
+        }
+      ></Modal>
     </div>
   );
 };
