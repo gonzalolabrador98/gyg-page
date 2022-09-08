@@ -1,8 +1,9 @@
-export const items = [
+export const ITEMS = [
   {
     id: 1,
     nombre: 'Papel Aluminio Make',
     img: 'https://makehogar.com.ar/wp-content/uploads/2020/01/6195.jpg',
+    categoria: 'papel',
     marca: 'Make',
     stock: 10,
     precio: 255,
@@ -10,6 +11,7 @@ export const items = [
   {
     id: 2,
     nombre: 'Papel Manteca Make',
+    categoria: 'papel',
     img: 'https://makehogar.com.ar/wp-content/uploads/2020/01/6330.jpg',
     marca: 'Make',
     stock: 10,
@@ -18,6 +20,7 @@ export const items = [
   {
     id: 3,
     nombre: 'Film Adherente Make',
+    categoria: 'papel',
     img: 'https://makehogar.com.ar/wp-content/uploads/2020/01/6196.jpg',
     marca: 'Make',
     stock: 10,
@@ -26,6 +29,7 @@ export const items = [
   {
     id: 4,
     nombre: 'Esponja acero 50gr Make',
+    categoria: 'limpieza',
     img: 'https://perfumeriaburbujas.com.ar/wp-content/uploads/esponjas/make-acero.jpg',
     marca: 'Make',
     stock: 255,
@@ -34,6 +38,7 @@ export const items = [
   {
     id: 5,
     nombre: 'Matamoscas Make',
+    categoria: 'bazar',
     img: 'https://makehogar.com.ar/wp-content/uploads/2020/01/6368.jpg',
     marca: 'Make',
     stock: 40,
@@ -42,6 +47,7 @@ export const items = [
   {
     id: 6,
     nombre: 'Centrifugador de verduras Make',
+    categoria: 'bazar',
     img: 'https://makehogar.com.ar/wp-content/uploads/2020/01/6772.jpg',
     marca: 'Make',
     stock: 5,

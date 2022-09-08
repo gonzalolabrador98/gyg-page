@@ -1,21 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
-import { Modal } from '../components/Modal';
-import { ItemDetail } from '../itemDetail/ItemDetail';
+import { Link, NavLink } from 'react-router-dom';
 
-export const ItemCount = ({ item }) => {
+export const ItemCount = () => {
   const [count, setCount] = useState(1);
-  const [showDetail, setShowDetail] = useState(false);
-
-  const handleShowDetail = () => {
-    setShowDetail(!showDetail);
-  };
 
   const add = () => {
     if (count > 0) {
-      console.log(`Se agregaron ${count} items a tu carrito`);
-    } else {
-      console.log('Seleccione una cantidad mayor a 0');
+      console.log(`Se agregaron ${count} ITEMS a tu carrito`);
     }
   };
 
@@ -27,8 +19,8 @@ export const ItemCount = ({ item }) => {
     }
   };
 
-  if (count < 0) {
-    setCount(0);
+  if (count == 0) {
+    setCount(1);
   }
 
   return (
@@ -58,28 +50,7 @@ export const ItemCount = ({ item }) => {
           Agregar al carrito
         </button>
       </div>
-      <div className="flex justify-center">
-        <button
-          onClick={handleShowDetail}
-          className="m-1 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-2 border border-blue-500 hover:border-transparent rounded"
-        >
-          Detalles del producto
-        </button>
-      </div>
-      <Modal
-        nombre={item.nombre}
-        onClose={handleShowDetail}
-        isOpen={showDetail}
-        imagen={item.img}
-        children={
-          <ItemDetail
-            onClose={handleShowDetail}
-            stock={item.stock}
-            precio={item.precio}
-            marca={item.marca}
-          />
-        }
-      ></Modal>
+      <div className="flex justify-center"></div>
     </div>
   );
 };

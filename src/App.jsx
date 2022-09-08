@@ -1,16 +1,29 @@
 import './App.css';
-import { ItemCount } from './itemCount/ItemCount';
-import { ItemDetail } from './itemDetail/ItemDetail';
-import { ItemListContainer } from './itemList/ItemListContainer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Navbar } from './navbar/Navbar';
+import { Productos } from './pages/Productos';
+import { Contacto } from './pages/Contacto';
+import { SobreNosotros } from './pages/SobreNosotros';
+import { Home } from './pages/Home';
+import { ItemDetail } from './itemDetail/ItemDetail';
+import { ProductosCategoria } from './pages/ProductosCategoria';
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Navbar />
-      <ItemListContainer />
-      <ItemDetail />
-    </>
+      <div>
+        <Routes>
+          <Route path="/home" element={<Home />}></Route>
+          <Route path="/productos" element={<Productos />}></Route>
+          <Route path="/categoria/:id" element={<ProductosCategoria />}></Route>
+          <Route path="/item/:id" element={<ItemDetail />}></Route>
+          <Route path="/contacto" element={<Contacto />}></Route>
+          <Route path="/sobrenosotros" element={<SobreNosotros />}></Route>
+          <Route path="*" element={<Productos />}></Route>
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { ItemCount } from '../itemCount/ItemCount';
-import { items } from '../utils/items';
+import { NavLink } from 'react-router-dom';
+import { ITEMS } from '../utils/ITEMS';
 
 function consultarPromesa(confirmacion) {
   return new Promise((res, rej) => {
     if (confirmacion) {
-      res(items);
+      res(ITEMS);
     } else {
       rej('Acceso denegado');
     }
@@ -42,7 +42,13 @@ export const ItemListContainer = () => {
             <p className="text-gray-700 text-base">Stock: {item.stock}</p>
             <p className="text-gray-700 text-base">Precio: ${item.precio}</p>
           </div>
-          <ItemCount item={item} />
+          <div className="flex justify-center m-2">
+            <NavLink to={`/item/${item.id}`}>
+              <button className="m-1 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-2 border border-blue-500 hover:border-transparent rounded">
+                Detalles del producto
+              </button>
+            </NavLink>
+          </div>
         </div>
       ))}
     </div>

@@ -11,7 +11,7 @@
 //             <Popover.Button
 //               className={`
 //                 ${open ? '' : 'text-opacity-90'}
-//                 group inline-flex items-center rounded-md bg-orange-700 px-3 py-2 text-base font-medium text-white hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
+//                 group inline-flex ITEMS-center rounded-md bg-orange-700 px-3 py-2 text-base font-medium text-white hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
 //             >
 //               <span>Solutions</span>
 //               <ChevronDownIcon
@@ -36,9 +36,9 @@
 //                       <a
 //                         key={item.name}
 //                         href={item.href}
-//                         className="-m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+//                         className="-m-3 flex ITEMS-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
 //                       >
-//                         <div className="flex h-10 w-10 shrink-0 items-center justify-center text-white sm:h-12 sm:w-12">
+//                         <div className="flex h-10 w-10 shrink-0 ITEMS-center justify-center text-white sm:h-12 sm:w-12">
 //                           <item.icon aria-hidden="true" />
 //                         </div>
 //                         <div className="ml-4">
@@ -57,7 +57,7 @@
 //                       href="##"
 //                       className="flow-root rounded-md px-2 py-2 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
 //                     >
-//                       <span className="flex items-center">
+//                       <span className="flex ITEMS-center">
 //                         <span className="text-sm font-medium text-gray-900">
 //                           Documentation
 //                         </span>
