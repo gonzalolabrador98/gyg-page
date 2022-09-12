@@ -2,8 +2,8 @@ import React from 'react';
 import { CartWidget } from './CartWidget';
 import { Disclosure } from '@headlessui/react';
 import { SearchIcon } from '@heroicons/react/solid';
-import logo from '../assets/gyglogo.png';
 import { Link } from 'react-router-dom';
+import logo from '../assets/gyglogo.png';
 
 export const Navbar = () => {
   return (

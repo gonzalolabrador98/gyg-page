@@ -7,6 +7,7 @@ import { SobreNosotros } from './pages/SobreNosotros';
 import { Home } from './pages/Home';
 import { ItemDetail } from './itemDetail/ItemDetail';
 import { ProductosCategoria } from './pages/ProductosCategoria';
+import { Carrito } from './pages/Carrito';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/item/:id" element={<ItemDetail />}></Route>
           <Route path="/contacto" element={<Contacto />}></Route>
           <Route path="/sobrenosotros" element={<SobreNosotros />}></Route>
+          <Route path="/carrito" element={<Carrito />}></Route>
           <Route path="*" element={<Productos />}></Route>
         </Routes>
       </div>
