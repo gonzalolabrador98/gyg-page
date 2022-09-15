@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 export const ItemCount = ({ item }) => {
   const [cantidad, setCantidad] = useState(1);
+  const { carrito, agregarProductoCarrito, quitarProductoCarrito } =
+    useContext(CartContext);
 
-  const agregarAlCarrito = (item) => {
-    const productoCarrito = { id: item.id, cantidad: cantidad };
-    console.log(productoCarrito);
+  console.log(carrito);
+
+  const agregarAlCarrito = (item, cantidad) => {
+    const nuevoItem = { ...item, cantidad };
+    agregarProductoCarrito(nuevoItem);
   };
 
   const contador = (operacion) => {
@@ -21,6 +27,7 @@ export const ItemCount = ({ item }) => {
       <div className="text-center font-bold text-xl m-2">
         <h1>{cantidad}</h1>
       </div>
+      <div></div>
       <div className="flex justify-center">
         <button
           onClick={() => contador('+')}
@@ -35,12 +42,20 @@ export const ItemCount = ({ item }) => {
           -
         </button>
       </div>
-      <button
-        onClick={() => agregarAlCarrito(item)}
-        className="m-1 bg-transparent hover:bg-yellow-500 text-blue-700 font-semibold hover:text-white  py-2 px-2 border border-blue-500 hover:border-transparent rounded"
-      >
-        Agregar al carrito
-      </button>
+      <div className="flex m-3 ">
+        <button
+          onClick={() => agregarAlCarrito(item, cantidad)}
+          className="m-1 bg-transparent hover:bg-yellow-500 text-blue-700 font-semibold hover:text-white  py-2 px-2 border border-blue-500 hover:border-transparent rounded"
+        >
+          Agregar al carrito
+        </button>
+        <button
+          onClick={() => quitarProductoCarrito(item, cantidad)}
+          className="m-1 bg-transparent text-l hover:bg-yellow-500 text-blue-700 font-semibold hover:text-white  py-2 px-2 border border-blue-500 hover:border-transparent rounded"
+        >
+          Quitar del carrito
+        </button>
+      </div>
     </div>
   );
 };

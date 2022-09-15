@@ -1,0 +1,11 @@
+.darkMode {
+  background-color: rgb(15, 17, 39);
+  color: white;
+  
+ }
+ 
+ .lightMode {
+   background-color: white;
+   color: black;
+ }
+ 

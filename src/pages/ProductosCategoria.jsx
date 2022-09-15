@@ -20,9 +20,9 @@ export const ProductosCategoria = () => {
             <div className=" px-6 py-4 text-center">
               <img className="w-full" src={item.img} />
               <div className="font-bold text-l mb-2">{item.nombre}</div>
-              <p className="text-gray-700 text-base">Marca: {item.marca}</p>
-              <p className="text-gray-700 text-base">Stock: {item.stock}</p>
-              <p className="text-gray-700 text-base">Precio: ${item.precio}</p>
+              <p className=" text-base">Marca: {item.marca}</p>
+              <p className=" text-base">Stock: {item.stock}</p>
+              <p className=" text-base">Precio: ${item.precio}</p>
             </div>
             <div className="flex justify-center m-2">
               <NavLink to={`/item/${item.id}`}>

@@ -3,18 +3,18 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ITEMS } from '../utils/ITEMS';
 
-function consultarPromesa(confirmacion) {
-  return new Promise((res, rej) => {
-    if (confirmacion) {
-      res(ITEMS);
-    } else {
-      rej('Acceso denegado');
-    }
-  });
-}
-
 export const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
+
+  function consultarPromesa(confirmacion) {
+    return new Promise((res, rej) => {
+      if (confirmacion) {
+        res(ITEMS);
+      } else {
+        rej('Acceso denegado');
+      }
+    });
+  }
 
   useEffect(() => {
     consultarPromesa(true)
@@ -36,11 +36,11 @@ export const ItemListContainer = () => {
           <img className="w-full" src="" alt="" />
           <div className=" px-6 py-4 text-center">
             <img className="w-full" src={item.img} />
-            <div className="font-bold text-l mb-2">{item.nombre}</div>
+            <div className="font-bold text-xl mb-2">{item.nombre}</div>
 
-            <p className="text-gray-700 text-base">Marca: {item.marca}</p>
-            <p className="text-gray-700 text-base">Stock: {item.stock}</p>
-            <p className="text-gray-700 text-base">Precio: ${item.precio}</p>
+            <p className=" text-base">Marca: {item.marca}</p>
+            <p className=" text-base">Stock: {item.stock}</p>
+            <p className=" text-base">Precio: ${item.precio}</p>
           </div>
           <div className="flex justify-center m-2">
             <NavLink to={`/item/${item.id}`}>
