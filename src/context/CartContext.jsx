@@ -7,6 +7,8 @@ const CartContext = createContext();
 const CartProvider = (props) => {
   const [carrito, setCarrito] = useState([]);
 
+  console.log(carrito);
+
   const agregarProductoCarrito = (producto) => {
     const productoExistente = carrito.find((prod) => prod.id === producto.id);
     if (!productoExistente) {
