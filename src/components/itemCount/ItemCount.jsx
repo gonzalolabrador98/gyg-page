@@ -40,7 +40,7 @@ export const ItemCount = ({ item }) => {
           -
         </button>
       </div>
-      <div className="flex m-3 ">
+      <div className="flex m-1">
         <button
           onClick={() => agregarAlCarrito(item, cantidad)}
           className="m-1 bg-transparent hover:bg-yellow-500 text-blue-700 font-semibold hover:text-white  py-2 px-2 border border-blue-500 hover:border-transparent rounded"
@@ -48,7 +48,7 @@ export const ItemCount = ({ item }) => {
           Agregar al carrito
         </button>
         <button
-          onClick={() => quitarProductoCarrito(item, cantidad)}
+          onClick={() => quitarProductoCarrito(item)}
           className="m-1 bg-transparent text-l hover:bg-yellow-500 text-blue-700 font-semibold hover:text-white  py-2 px-2 border border-blue-500 hover:border-transparent rounded"
         >
           Quitar del carrito

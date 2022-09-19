@@ -17,15 +17,16 @@ const CartProvider = (props) => {
   };
 
   const quitarProductoCarrito = (producto) => {
-    const auxCarrito = carrito;
-    let indice = carrito.findIndex((prod) => prod.id == producto.id);
-    auxCarrito.splice(indice, 1);
-    setCarrito(auxCarrito);
+    setCarrito((prevCarrito) =>
+      prevCarrito.filter((prod) => prod.id !== producto.id)
+    );
   };
 
   const limpiarProductoCarrito = () => {
     setCarrito([]);
   };
+
+  const suma = carrito.reduce((prev, curr) => prev + curr.precio, 0);
 
   return (
     <div>
@@ -35,6 +36,7 @@ const CartProvider = (props) => {
           agregarProductoCarrito,
           quitarProductoCarrito,
           limpiarProductoCarrito,
+          suma,
         }}
       >
         {props.children}
