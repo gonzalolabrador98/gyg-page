@@ -23,7 +23,6 @@ const CartProvider = (props) => {
       });
     }
   };
-
   const quitarProductoCarrito = (producto) => {
     setCarrito((prevCarrito) =>
       prevCarrito.filter((prod) => prod.id !== producto.id)
