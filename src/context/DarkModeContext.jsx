@@ -12,11 +12,9 @@ const DarkModeProvider = (props) => {
   };
 
   return (
-    <div>
-      <DarkModeContext.Provider value={{ darkMode, toggleDarkMode }}>
-        {props.children}
-      </DarkModeContext.Provider>
-    </div>
+    <DarkModeContext.Provider value={{ darkMode, toggleDarkMode }}>
+      {props.children}
+    </DarkModeContext.Provider>
   );
 };
 

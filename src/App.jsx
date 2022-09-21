@@ -10,15 +10,16 @@ import { ItemDetail } from './itemDetail/ItemDetail';
 import { ProductosCategoria } from './pages/ProductosCategoria';
 import { DarkModeContext } from './context/DarkModeContext';
 import './App.css';
+import 'animate.css';
 
 export const App = () => {
   const { darkMode } = useContext(DarkModeContext);
 
   return (
-    <div className={darkMode ? 'darkMode' : 'lightMode'}>
+    <div className={`${darkMode ? 'darkMode' : 'lightMode'} h-full`}>
       <BrowserRouter>
         <Navbar />
-        <div>
+        <div className="animate__animated animate__fadeIn h-full">
           <Routes>
             <Route path="/home" element={<Home />}></Route>
             <Route path="/productos" element={<Productos />}></Route>

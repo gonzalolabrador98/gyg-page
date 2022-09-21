@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { CartContext } from '../../context/CartContext';
 
 export const ItemCount = ({ item }) => {
@@ -22,6 +23,8 @@ export const ItemCount = ({ item }) => {
 
   return (
     <div className="max-w-sm   rounded">
+      <Toaster position="bottom-right" reverseOrder={false} />
+
       <div className="text-center font-bold text-xl m-2">
         <h1>{cantidad}</h1>
       </div>

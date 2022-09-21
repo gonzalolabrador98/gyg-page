@@ -1,14 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import { ItemCount } from '../components/itemCount/ItemCount';
+import ModalForm from '../components/modal/ModalForm';
 import { CartContext } from '../context/CartContext';
+import 'animate.css';
 
 export const Carrito = () => {
-  const { carrito, suma, quitarProductoCarrito } = useContext(CartContext);
+  const { carrito, suma, quitarProductoCarrito, limpiarProductoCarrito } =
+    useContext(CartContext);
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const closeModalyCarrito = () => {
+    limpiarProductoCarrito();
+    setIsOpen(false);
+  };
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
   if (!carrito.length) {
     return (
-      <div>
+      <div className="animate__animated animate__fadeIn ">
         <h1 className="flex justify-center font-bold m-2 text-3xl">Carrito</h1>
         <div className="flex flex-col p-2 rounded overflow-hidden shadow-lg m-5 border border-gray-400">
           <h1 className="font-bold text-center text-xl p-10 ">
@@ -30,11 +48,11 @@ export const Carrito = () => {
   }
 
   return (
-    <div className="flex flex-col rounded overflow-hidden shadow-lg m-5 border border-gray-400">
+    <div className="flex flex-col rounded overflow-hidden shadow-lg m-5 border border-gray-400 animate__animated animate__fadeIn">
       {carrito.map((item, idx) => (
         <div
           key={idx}
-          className="flex items-center justify-between gap-10 px-4 flex-wrap rounded overflow-hidden m-5 border border-gray-400"
+          className="flex items-center justify-between gap-10 px-4 flex-wrap rounded overflow-hidden m-5 border border-gray-400 animate__animated animate__fadeIn"
         >
           <div className="flex gap-10 ">
             <img src={item.img} className="w-[100px]" />
@@ -68,47 +86,16 @@ export const Carrito = () => {
             Seguir comprando
           </button>
         </NavLink>
-        <button
-          type="button"
-          className="m-5 max-w-[200px] flex self-end bg-transparent hover:bg-green-600 text-blue-700 font-semibold hover:text-white  py-2 px-2 border border-blue-500 hover:border-transparent rounded"
-        >
-          Terminar compra
-        </button>
+
+        <ModalForm
+          isOpen={isOpen}
+          closeModal={closeModal}
+          openModal={openModal}
+          closeModalyCarrito={closeModalyCarrito}
+          total={suma}
+          carrito={carrito}
+        />
       </div>
     </div>
-    // <div>
-    //   <div className="flex justify-center">
-    //     <div className="w-[300px] max-w-[300px]  rounded overflow-hidden shadow-lg m-2 border border-gray-400">
-    //       <div>
-    //         <div className=" px-6 py-4 text-center">
-    //           <img className="w-full" src={carrito.img} />
-    //           <div className="font-bold text-l mb-2">{carrito.nombre}</div>
-    //           <p className=" text-base">Marca: {carrito.marca}</p>
-    //           <p className=" text-base">Stock: {carrito.stock}</p>
-    //           <p className=" text-base">Precio: ${carrito.precio}</p>
-    //         </div>
-    //       </div>
-    // <div className="mb-2 flex flex-col items-center">
-    //         <ItemCount />
-
-    //         <button
-    //           type="button"
-    //           className="m-1  bg-transparent hover:bg-green-600 text-blue-700 font-semibold hover:text-white  py-2 px-2 border border-blue-500 hover:border-transparent rounded"
-    //         >
-    //           Terminar compra
-    //         </button>
-
-    //         <NavLink to="/productos">
-    //           <button
-    //             type="button"
-    //             className="m-1  bg-transparent hover:bg-yellow-500 text-blue-700 font-semibold hover:text-white  py-2 px-2 border border-blue-500 hover:border-transparent rounded"
-    //           >
-    //             Seguir comprando
-    //           </button>
-    //         </NavLink>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
