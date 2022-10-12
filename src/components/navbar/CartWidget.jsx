@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import { CartContext } from '../context/CartContext';
+import { CartContext } from '../../context/CartContext';
 import 'animate.css';
 export const CartWidget = () => {
   const { carrito } = useContext(CartContext);

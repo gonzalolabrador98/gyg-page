@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { collection, getDocs, query } from 'firebase/firestore';
 import { useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
-import db from '../firebase/firebase';
+import db from '../../firebase/firebase';
 import 'animate.css';
 
 export const ItemListContainer = () => {

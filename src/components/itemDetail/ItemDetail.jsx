@@ -2,8 +2,8 @@ import { doc, getDoc } from 'firebase/firestore';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
-import { ItemCount } from '../components/itemCount/ItemCount';
-import db from '../firebase/firebase';
+import { ItemCount } from '../itemCount/ItemCount';
+import db from '../../firebase/firebase';
 import 'animate.css';
 
 export const ItemDetail = () => {

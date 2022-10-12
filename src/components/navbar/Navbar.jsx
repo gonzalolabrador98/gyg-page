@@ -2,9 +2,9 @@ import React, { useContext, useState } from 'react';
 import { CartWidget } from './CartWidget';
 import { Disclosure, Switch } from '@headlessui/react';
 import { Link, NavLink } from 'react-router-dom';
-import { DarkModeContext } from '../context/DarkModeContext';
-import { CartContext } from '../context/CartContext';
-import logo from '../assets/gyglogo.png';
+import { DarkModeContext } from '../../context/DarkModeContext';
+import { CartContext } from '../../context/CartContext';
+import logo from '../../assets/gyglogo.png';
 
 export const Navbar = () => {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);

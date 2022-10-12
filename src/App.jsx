@@ -1,12 +1,12 @@
 import { useContext } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Navbar } from './navbar/Navbar';
+import { Navbar } from './components/navbar/Navbar';
 import { Productos } from './pages/Productos';
 import { Contacto } from './pages/Contacto';
 import { SobreNosotros } from './pages/SobreNosotros';
 import { Home } from './pages/Home';
 import { Carrito } from './pages/Carrito';
-import { ItemDetail } from './itemDetail/ItemDetail';
+import { ItemDetail } from './components/itemDetail/ItemDetail';
 import { ProductosCategoria } from './pages/ProductosCategoria';
 import { DarkModeContext } from './context/DarkModeContext';
 import './App.css';

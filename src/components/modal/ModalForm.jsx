@@ -1,7 +1,8 @@
 import { Dialog, Transition } from '@headlessui/react';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, doc, updateDoc } from 'firebase/firestore';
 import { Fragment, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+
 import db from '../../firebase/firebase';
 
 export default function ModalForm({
@@ -19,7 +20,6 @@ export default function ModalForm({
     Telefono: '',
   });
   const { Nombre, Email, Telefono } = buyer;
-
   const [showFeedback, setShowFeedback] = useState(false);
 
   const generateOrder = async (data) => {
@@ -40,6 +40,16 @@ export default function ModalForm({
     });
   };
 
+  const actualizarStock = () => {
+    carrito.forEach(async (e) => {
+      const document = doc(db, 'ITEMS', e.id);
+      const nuevoStock = e.stock - e.cantidad;
+      await updateDoc(document, {
+        stock: nuevoStock,
+      });
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const items = carrito.map((e) => {
@@ -48,11 +58,13 @@ export default function ModalForm({
         nombre: e.nombre,
         precio: e.precio,
         cantidad: e.cantidad,
+        nuevoStock: e.stock - e.cantidad,
       };
     });
     const dia = new Date();
     const data = { buyer, items, dia, total };
     generateOrder(data);
+    actualizarStock();
     console.log('data', data);
   };
 
