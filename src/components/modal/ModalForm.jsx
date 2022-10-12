@@ -65,7 +65,6 @@ export default function ModalForm({
     const data = { buyer, items, dia, total };
     generateOrder(data);
     actualizarStock();
-    console.log('data', data);
   };
 
   return (
